@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-//AIzaSyCwcY9nfyZVj9E_FX1xP78Lqltec98vIkY
-
 class Header extends Component {
     render(){
         return(
