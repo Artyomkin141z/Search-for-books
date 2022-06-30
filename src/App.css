@@ -54,6 +54,12 @@ input{
     background-size: 16px 16px;
     background-position: 35% 50%;
 }
+.serch_button:hover{
+    cursor: pointer;
+}
+.serch_button:active{
+    background-color: #c0c0c0;
+}
 
 .filter_box{
     font-weight: 300;
@@ -105,11 +111,12 @@ select{
     transition: 0.3s;
 }
 .BookCard:hover{
+    cursor: pointer;
     transform: scale(1.05);
     border: 1px solid #c0c0c0;
 }
 
-.BookCard img{
+.BookCard .book-img{
     display: flex;
     /* width: 150px; */
     max-height: 200px;
@@ -156,4 +163,86 @@ select{
 .loadMore-text:hover{
     transform: scale(1.2);
     color: #c0c0c0;
+}
+.click-loadMore:active{
+    color:#1dd226;
+}
+
+.end-click:active{
+    color: #dd0f0f;
+}
+
+.modal {
+    /* padding: 20px; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,0.2);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: 0.5s;
+    
+
+    z-index: 999;
+}
+
+.modal.active{
+    opacity: 1;
+    pointer-events: all;
+    overflow-y:scroll;
+}
+
+.modal__content{
+    margin: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    width: 80%;
+    box-shadow: 0 0 30px rgb(0, 0, 0);
+    display: inline-block;
+    /* display: table; */
+}
+
+.bookFull-img{
+    width: 30%;
+    margin-right: 20px;
+    /* display: flex; */
+    float: left;
+}
+
+.bookFull-title{
+    font-weight: 700;
+    font-size: 30px;
+    /* display: flex; */
+    margin-bottom: 5px;
+    /* border: #000000 1px solid; */
+}
+
+.bookFull-categoties{
+    font-weight: 300;
+    font-size: 15px;
+    text-decoration: underline;
+    color: #6d6d6d;
+    margin-bottom: 10px;
+}
+
+.bookFull-authors{
+    font-weight: 300;
+    font-size: 20px;
+    color: #6d6d6d;
+    margin-bottom: 10px;
+}
+
+.bookFull-description{
+    font-size: 16px;
+    display: block;
+    text-align: justify;
 }

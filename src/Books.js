@@ -26,7 +26,7 @@ class Books extends Component{
             return "";
         }
         else {
-            console.log(this.state.categories);
+            // console.log(this.state.categories);
             return "+subject:" + this.state.categories;
         }
     }
@@ -42,7 +42,7 @@ class Books extends Component{
                     maxResults: 30,
                     orderBy: this.state.sortingBy,  
                     startIndex: 0,  
-                    key: "AIzaSyCwcY9nfyZVj9E_FX1xP78Lqltec98vIkY",
+                    // key: "AIzaSyCwcY9nfyZVj9E_FX1xP78Lqltec98vIkY",
 
                 })
             .then((data)=>{
@@ -50,6 +50,12 @@ class Books extends Component{
                 this.setState({books: [...data.body.items]});
                 this.setState({countResult: data.body.totalItems});
                 this.isFound = true;
+
+                this.checkCountLoadItems(data.body.totalItems);
+
+                // console.log(this.isEnd);
+                // console.log("load 1 ", this.state.loadItems);
+                // console.log("1 ", this.state.countResult);
             })
     }
 
@@ -64,40 +70,48 @@ class Books extends Component{
                     maxResults: 30,
                     orderBy: this.state.sortingBy,  
                     startIndex: this.state.loadItems,  
-                    key: "AIzaSyCwcY9nfyZVj9E_FX1xP78Lqltec98vIkY",
+                    // key: "AIzaSyCwcY9nfyZVj9E_FX1xP78Lqltec98vIkY",
 
                 })
             .then((data)=>{
                 // console.log(this.state.categories);
-                console.log(data);
-                console.log(this.state.searchField  + this.getCategories());
+                // console.log(data);
+                // console.log(this.state.searchField  + this.getCategories());
                 this.setState({loadItems: this.state.loadItems + 30});
                 this.setState({books: this.state.books.concat([...data.body.items])});
                 this.setState({countResult: data.body.totalItems});
+
+                this.checkCountLoadItems(data.body.totalItems);
+
+                // console.log("load ", this.state.loadItems);
             })
     }
 
-    checkCountLoadItems = () => {
-        if(this.state.countResult < this.state.loadItems + 30){
-            this.setState({loadItems: this.state.loadItems + 30});
+    checkCountLoadItems = (countResult) => {
+        if(countResult < this.state.loadItems + 30){
+            // this.setState({loadItems: this.state.loadItems + 30});
+            // this.isEnd = false;
+            this.isEnd = true;
         }
-        else this.isEnd = true;
+        else this.isEnd = false;
     }
 
     checkFound = (i) => {
         if(this.isFound && i === 1){
+            // console.log("2 ", this.state.countResult);
             return(
                 <p className='found-text'>Found {this.state.countResult} result</p>
             );
         }
         if(this.isFound && i === 2){
+            // this.checkCountLoadItems();
             if(this.isEnd){
                 return(
-                    <p className='wrapper-load'><p className='loadMore-text'>End</p></p>
+                    <p className='wrapper-load'><p className='loadMore-text end-click'>End</p></p>
                 );
             }
             else return(
-                <p className='wrapper-load'><p onClick = {this.searchMore} className='loadMore-text'>Load more</p></p>
+                <p className='wrapper-load'><p onClick = {this.searchMore} className='loadMore-text click-loadMore'>Load more</p></p>
             );
         }
     }
