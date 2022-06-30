@@ -10,22 +10,28 @@ body {
 }
 
 header{
-    padding: 40px;
-    height: 250px;
+    /* padding: 40px; */
+    max-height: 300px;
+    min-height: 100px;
     color: rgb(255, 255, 255);
     text-align: center;
     background-image: url(https://artmoskovia.ru/wp-content/uploads/2022/02/biblioteki-podmoskovya.jpeg);
     background-size: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header_text{
-    font-size: 40pt;
+    font-size: 5vw;
     font-weight: 700;
     margin-bottom: 20px;
 }
 
 .search_box{
-    width: 600px;
+    width: 90%;
+    max-width: 600px;
     height: 30px;
     display: flex;
     justify-content: center;
@@ -34,8 +40,8 @@ header{
 }
 
 input{
-    width: 600px;
-    min-width: 200px;
+    width: 90%;
+    max-width: 600px;
     height: 30px;
     border-radius: 15px 0 0 15px;
     padding: 0 10px;
@@ -202,9 +208,10 @@ select{
 
 .modal__content{
     margin: 30px;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     background-color: #f0f0f0;
+    max-width: 900px;
     width: 80%;
     box-shadow: 0 0 30px rgb(0, 0, 0);
     display: inline-block;
@@ -213,9 +220,11 @@ select{
 
 .bookFull-img{
     width: 30%;
-    margin-right: 20px;
+    margin-right: 25px;
     /* display: flex; */
     float: left;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .bookFull-title{

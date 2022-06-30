@@ -132,6 +132,7 @@ class Books extends Component{
         return(
             <div className='App'>
                 <header>
+                <div>
                     <Header />
                     <SearchBox 
                         handleSearch = {
@@ -147,6 +148,7 @@ class Books extends Component{
                             this.searchBook
                         }
                     />
+                    </div>
                 </header>
                 {this.checkFound(1)}
                 <BookList books = {this.state.books} />
