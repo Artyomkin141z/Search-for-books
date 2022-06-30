@@ -12,7 +12,7 @@ body {
 header{
     /* padding: 40px; */
     max-height: 300px;
-    min-height: 100px;
+    /* min-height: 100px; */
     color: rgb(255, 255, 255);
     text-align: center;
     background-image: url(https://artmoskovia.ru/wp-content/uploads/2022/02/biblioteki-podmoskovya.jpeg);
@@ -74,7 +74,7 @@ input{
     max-width: 500px;
     margin: 0 auto;
     margin-bottom: 20px;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .found-text{
@@ -254,4 +254,117 @@ select{
     font-size: 16px;
     display: block;
     text-align: justify;
+}
+
+@media screen and (max-width: 600px) {
+    header{
+        height: 100px;
+    }
+
+    .header_text{
+        font-size: 20px;
+    }
+
+    .search_box, input{
+        height: 15px;
+        width: 80%;
+        margin-bottom: 5px;     
+    }
+
+    input{
+        font-size: 10px;
+    }
+    
+    .serch_button{
+        width: 15px;
+        height: 15px;
+        background-size: 8px 8px;
+    }
+
+    .filter_box{
+        display: block;
+        font-size: 10px;
+        margin-bottom: 0px;
+    }
+
+    select{
+        display: flex;
+        width: 70px;
+        height: 15px;
+        font-size: 8px;
+        margin-bottom: 5px;
+    }
+
+    .categories_box, .sorting_box{
+        display: flex;
+        justify-content: center;
+    }
+
+    .BookCard{
+        width: 200px;
+        height: 230px;
+        margin-bottom: 5px;
+        padding: 30px 7px 7px 7px;
+    }
+
+    .BookCard .book-img{
+        max-height: 100px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .BookList{
+        padding: 5px 5px;
+        grid-template-columns: repeat(auto-fit, 200px);
+    }
+
+    .book-categoties, .book-authors{
+        font-size: 9px;
+    }
+    
+    .book-title{
+        font-size: 14px;
+        padding: 6px 0;
+    }
+
+    .book-inform{
+        bottom: 15px;
+    }
+
+    .found-text{
+        margin-top: 5px;
+        font-size: 10px;
+    }
+
+    .loadMore-text{
+        font-size: 10px;   
+        margin-bottom: 5px;
+    }
+
+    .modal__content{
+        width: 90%;
+        /* height: 90%; */
+        padding: 5PX;
+        margin: 0;
+    }
+
+    .bookFull-title{
+        font-size: 13px;
+        margin-bottom: 2px;
+    }
+    
+    .bookFull-categoties{
+        font-size: 8px;
+    }
+    
+    .bookFull-authors{
+        font-size: 10px;
+    }
+    
+    .bookFull-description{
+        font-size: 9px;
+    }
+
+    .bookFull-img{
+        margin-right: 5px;
+    }
 }

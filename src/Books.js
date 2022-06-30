@@ -132,7 +132,7 @@ class Books extends Component{
         return(
             <div className='App'>
                 <header>
-                <div>
+                    <div>
                     <Header />
                     <SearchBox 
                         handleSearch = {
