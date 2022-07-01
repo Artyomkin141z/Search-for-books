@@ -6,7 +6,7 @@ const SearchBox = (props) => {
                 <form  className='search_box' action=''
                     onSubmit={props.searchBook}
                 >
-                    <input onChange={props.handleSearch} maxlength="100" type="text"></input>
+                    <input onChange={props.handleSearch} maxLength="100" type="text"></input>
                     <button onClick={props.searchBook} className='serch_button'></button>
                 </form>
                 <div className='filter_box'>

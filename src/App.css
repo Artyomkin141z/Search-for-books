@@ -195,7 +195,7 @@ select{
     opacity: 0;
     pointer-events: none;
     transform: 0.5s;
-    
+    transition: 0.3s;
 
     z-index: 999;
 }
@@ -256,7 +256,7 @@ select{
     text-align: justify;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 500px) {
     header{
         height: 100px;
     }

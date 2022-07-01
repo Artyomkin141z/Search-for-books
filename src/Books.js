@@ -97,11 +97,11 @@ class Books extends Component{
         if(this.isFound && i === 2){
             if(this.isEnd){
                 return(
-                    <p className='wrapper-load'><p className='loadMore-text end-click'>End</p></p>
+                    <div className='wrapper-load'><p className='loadMore-text end-click'>End</p></div>
                 );
             }
             else return(
-                <p className='wrapper-load'><p onClick = {this.searchMore} className='loadMore-text click-loadMore'>Load more</p></p>
+                <div className='wrapper-load'><p onClick = {this.searchMore} className='loadMore-text click-loadMore'>Load more</p></div>
             );
         }
     }

@@ -6,8 +6,12 @@ const BookCard = (props) => {
     let [modalActive, setModaldActive] = useState(false);
     
     function checkLength (str){
-        if(str.length > 45){
+        str = String(str);
+        if(str.length > 45 && str){
             str = str.substr(0, 45) + "...";
+        }
+        else if(str === "undefined"){
+            str = "--Can't ask for property--";
         }
         return str;
     }
