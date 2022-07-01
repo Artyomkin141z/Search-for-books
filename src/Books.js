@@ -6,10 +6,11 @@ import request from "superagent";
 
 //AIzaSyCwcY9nfyZVj9E_FX1xP78Lqltec98vIkY
 
+let isShowPrelode = false;
+
 class Books extends Component{
     constructor(props){
         super(props);
-        this.isShowPreloder = false;
         this.isFound = false;
         this.isEnd = false;
         this.state = {
@@ -31,9 +32,10 @@ class Books extends Component{
         }
     }
 
-    searchBook = (e) =>{
+    searchBook = async (e) =>{
+        isShowPrelode = true;
+        console.log(isShowPrelode);
         e.preventDefault();
-        
         request
             .get("https://www.googleapis.com/books/v1/volumes")
             .query(
@@ -50,13 +52,15 @@ class Books extends Component{
                 this.setState({countResult: data.body.totalItems});
                 this.isFound = true;
                 this.checkCountLoadItems(data.body.totalItems);
-                this.isShowPreloder = false;
+                
+                isShowPrelode = false;
+                console.log(isShowPrelode);
             })
     }
 
     searchMore = (e) => {
         e.preventDefault();
-        
+
         request
             .get("https://www.googleapis.com/books/v1/volumes")
             .query(
@@ -112,26 +116,33 @@ class Books extends Component{
         this.setState({sortingBy: e.target.value});
     }
 
+    changeIsViewPrelode = async () => {
+        isShowPrelode = true;
+    }
+
     render(){
         return(
             <div className='App'>
                 <header>
                     <div>
-                    <Header />
-                    <SearchBox 
-                        handleSearch = {
-                            this.handleSearch
-                        } 
-                        handleCategories = {
-                            this.handleCategories
-                        }
-                        handleSortingBy = {
-                            this.handleSortingBy
-                        }
-                        searchBook = {
-                            this.searchBook
-                        }
-                    />
+                        <Header />
+                        <SearchBox 
+                            handleSearch = {
+                                this.handleSearch
+                            } 
+                            handleCategories = {
+                                this.handleCategories
+                            }
+                            handleSortingBy = {
+                                this.handleSortingBy
+                            }
+                            searchBook = {
+                                this.searchBook
+                            }
+                            changeIsViewPrelode = {
+                                this.changeIsViewPrelode
+                            }
+                        />
                     </div>
                 </header>
                 {this.checkFound(1)}
