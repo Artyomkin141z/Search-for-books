@@ -6,8 +6,6 @@ import request from "superagent";
 
 //AIzaSyCwcY9nfyZVj9E_FX1xP78Lqltec98vIkY
 
-let isShowPrelode = false;
-
 class Books extends Component{
     constructor(props){
         super(props);
@@ -33,8 +31,6 @@ class Books extends Component{
     }
 
     searchBook = async (e) =>{
-        isShowPrelode = true;
-        console.log(isShowPrelode);
         e.preventDefault();
         request
             .get("https://www.googleapis.com/books/v1/volumes")
@@ -52,9 +48,6 @@ class Books extends Component{
                 this.setState({countResult: data.body.totalItems});
                 this.isFound = true;
                 this.checkCountLoadItems(data.body.totalItems);
-                
-                isShowPrelode = false;
-                console.log(isShowPrelode);
             })
     }
 
@@ -116,10 +109,6 @@ class Books extends Component{
         this.setState({sortingBy: e.target.value});
     }
 
-    changeIsViewPrelode = async () => {
-        isShowPrelode = true;
-    }
-
     render(){
         return(
             <div className='App'>
@@ -138,9 +127,6 @@ class Books extends Component{
                             }
                             searchBook = {
                                 this.searchBook
-                            }
-                            changeIsViewPrelode = {
-                                this.changeIsViewPrelode
                             }
                         />
                     </div>
