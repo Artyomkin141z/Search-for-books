@@ -9,6 +9,7 @@ import request from "superagent";
 class Books extends Component{
     constructor(props){
         super(props);
+        this.isShowPreloder = false;
         this.isFound = false;
         this.isEnd = false;
         this.state = {
@@ -49,6 +50,7 @@ class Books extends Component{
                 this.setState({countResult: data.body.totalItems});
                 this.isFound = true;
                 this.checkCountLoadItems(data.body.totalItems);
+                this.isShowPreloder = false;
             })
     }
 
@@ -99,6 +101,7 @@ class Books extends Component{
 
     handleSearch = (e) => {
         this.setState({searchField: e.target.value});
+        this.isShowPreloder = true;
     }
 
     handleCategories = (e) => {
