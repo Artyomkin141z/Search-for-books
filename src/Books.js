@@ -49,6 +49,13 @@ class Books extends Component{
                 this.isFound = true;
                 this.checkCountLoadItems(data.body.totalItems);
             })
+            .catch(() => {
+                this.setState({countResult: 0});
+                this.setState({books: []});
+                this.isFound = true;
+                this.checkCountLoadItems(0);
+                
+            })
     }
 
     searchMore = (e) => {
@@ -68,6 +75,9 @@ class Books extends Component{
                 this.setState({books: this.state.books.concat([...data.body.items])});
                 this.setState({countResult: data.body.totalItems});
                 this.checkCountLoadItems(data.body.totalItems);
+            })
+            .catch(() => {
+                console.log(alert);
             })
     }
 
